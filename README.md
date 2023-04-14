@@ -1,4 +1,4 @@
-# Laravel 9 切換使用者
+# Laravel 10 切換使用者
 
 引入 lab404 的 laravel-impersonate 套件來擴增以便進行其他使用者身份驗證，方便在使用者模型新增一個簡單的特徵機制，然後一鍵模擬為你的使用者之一。
 
@@ -20,17 +20,20 @@ $ php artisan key:generate
 ```sh
 $ php artisan migrate --seed
 ```
-- 執行安裝 Laravel Mix 引用的依賴項目，並執行所有 Mix 任務。
+- 執行安裝 Vite 和 Laravel 擴充套件引用的依賴項目。
 ```sh
-$ npm install && npm run dev
+$ npm install
+```
+- 執行正式環境版本化資源管道並編譯。
+```sh
+$ npm run build
 ```
 - 在瀏覽器中輸入已定義的路由 URL 來訪問，例如：http://127.0.0.1:8000。
 - 你可以經由 `/register` 來進行註冊。
 - 註冊後，可以經由 `/login` 來進行登入。
-- 登入後便可經由 `/home` 以進行使用者切換。
 
 ----
 
 ## 畫面截圖
-![](https://i.imgur.com/D4S5vQ5.png)
+![](https://i.imgur.com/ggLHxID.png)
 > 使用者便可以快速切換為其他使用者帳戶，而不需要關閉正在執行的程式
