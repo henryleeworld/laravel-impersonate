@@ -35,5 +35,5 @@ $ npm run build
 ----
 
 ## 畫面截圖
-![](https://i.imgur.com/ggLHxID.png)
+![](https://i.imgur.com/K69SoE1.gif)
 > 使用者便可以快速切換為其他使用者帳戶，而不需要關閉正在執行的程式

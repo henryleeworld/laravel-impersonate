@@ -15,6 +15,9 @@
                     <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    <x-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.*')">
+                        {{ __('Users') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -93,6 +96,18 @@
                         </x-slot>
 
                         <x-slot name="content">
+                            @impersonating
+                            <!-- Impersonation -->
+                            <div class="block px-4 py-2 text-xs text-gray-400">
+                                {{ __('Impersonation') }}
+                            </div>
+                            <x-dropdown-link href="{{ route('impersonate.leave') }}">
+                                {{ __('Leave impersonation') }}
+                            </x-dropdown-link>
+                            @endImpersonating
+
+                            <div class="border-t border-gray-200"></div>
+
                             <!-- Account Management -->
                             <div class="block px-4 py-2 text-xs text-gray-400">
                                 {{ __('Manage Account') }}
@@ -113,16 +128,6 @@
                             <!-- Authentication -->
                             <form method="POST" action="{{ route('logout') }}" x-data>
                                 @csrf
-                                @if (auth()->user()->canImpersonate() && auth()->user()->id !== 1)
-                                <x-dropdown-link href="{{ route('impersonate', 1) }}">
-                                    {{ __('Impersonate this user') }}
-                                </x-dropdown-link>
-                                @endif
-                                @impersonating
-                                <x-dropdown-link href="{{ route('impersonate.leave') }}">
-                                    {{ __('Leave impersonation') }}
-                                </x-dropdown-link>
-                                @endImpersonating
                                 <x-dropdown-link href="{{ route('logout') }}"
                                          @click.prevent="$root.submit();">
                                     {{ __('Log Out') }}
@@ -151,6 +156,9 @@
             <x-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+            <x-responsive-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.*')">
+                {{ __('Users') }}
+            </x-responsive-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->
@@ -169,6 +177,12 @@
             </div>
 
             <div class="mt-3 space-y-1">
+                @impersonating
+                <x-responsive-nav-link href="{{ route('impersonate.leave') }}">
+                    {{ __('Leave impersonation') }}
+                </x-responsive-nav-link>
+                @endImpersonating
+
                 <!-- Account Management -->
                 <x-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
                     {{ __('Profile') }}
@@ -183,16 +197,6 @@
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}" x-data>
                     @csrf
-                    @if (auth()->user()->canImpersonate() && auth()->user()->id !== 1)
-                    <x-responsive-nav-link href="{{ route('impersonate', 1) }}">
-                        {{ __('Impersonate this user') }}
-                    </x-responsive-nav-link>
-                    @endif
-                    @impersonating
-                    <x-responsive-nav-link href="{{ route('impersonate.leave') }}">
-                        {{ __('Leave impersonation') }}
-                    </x-responsive-nav-link>
-                    @endImpersonating
                     <x-responsive-nav-link href="{{ route('logout') }}"
                                    @click.prevent="$root.submit();">
                         {{ __('Log Out') }}
