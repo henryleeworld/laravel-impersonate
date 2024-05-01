@@ -1,4 +1,4 @@
-# Laravel 10 切換使用者
+# Laravel 11 切換使用者
 
 引入 lab404 的 laravel-impersonate 套件來擴增以便進行其他使用者身份驗證，方便在使用者模型新增一個簡單的特徵機制，然後一鍵模擬為你的使用者之一。
 
@@ -35,5 +35,5 @@ $ npm run build
 ----
 
 ## 畫面截圖
-![](https://i.imgur.com/K69SoE1.gif)
+![](https://i.imgur.com/dp2DF8R.gif)
 > 使用者便可以快速切換為其他使用者帳戶，而不需要關閉正在執行的程式
