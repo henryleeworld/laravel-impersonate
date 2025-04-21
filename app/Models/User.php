@@ -9,12 +9,12 @@ use Illuminate\Notifications\Notifiable;
 use Lab404\Impersonate\Models\Impersonate;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
-use Laravel\Jetstream\HasTeams;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, HasProfilePhoto, Impersonate, HasTeams, Notifiable, TwoFactorAuthenticatable;
+    /** @use HasFactory<\Database\Factories\UserFactory> */
+    use HasApiTokens, HasFactory, HasProfilePhoto, Impersonate, Notifiable, TwoFactorAuthenticatable;
 
     /**
      * The attributes that are mass assignable.
